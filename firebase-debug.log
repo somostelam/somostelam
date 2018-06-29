@@ -1,0 +1,28 @@
+[debug] [2018-06-29T22:32:41.224Z] ----------------------------------------------------------------------
+[debug] [2018-06-29T22:32:41.226Z] Command:      /usr/local/bin/node /usr/bin/firebase serve
+[debug] [2018-06-29T22:32:41.226Z] CLI Version:  3.9.1
+[debug] [2018-06-29T22:32:41.226Z] Platform:     linux
+[debug] [2018-06-29T22:32:41.226Z] Node Version: v7.10.0
+[debug] [2018-06-29T22:32:41.226Z] Time:         Fri Jun 29 2018 19:32:41 GMT-0300 (ART)
+[debug] [2018-06-29T22:32:41.226Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-06-29T22:32:41.235Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-06-29T22:32:41.236Z] > authorizing via signed-in user
+[debug] [2018-06-29T22:32:41.237Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/somostelam2018  
+ Fri Jun 29 2018 19:32:41 GMT-0300 (ART)
+[debug] [2018-06-29T22:32:42.544Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-29T22:32:42.545Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/somostelam2018/tokens  
+ Fri Jun 29 2018 19:32:42 GMT-0300 (ART)
+[debug] [2018-06-29T22:32:43.587Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/opt/lampp/htdocs/somostelam'...
+[info] 
+[debug] [2018-06-29T22:32:43.592Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/somostelam2018  
+ Fri Jun 29 2018 19:32:43 GMT-0300 (ART)
+[debug] [2018-06-29T22:32:44.602Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-29T22:32:44.603Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/319669964621/clients/_:getWebAppConfig  
+ Fri Jun 29 2018 19:32:44 GMT-0300 (ART)
+[debug] [2018-06-29T22:32:45.304Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+
