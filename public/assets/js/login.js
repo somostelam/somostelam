@@ -37,7 +37,7 @@ var connectedRef = db.ref(".info/connected");
 firebase.auth().onAuthStateChanged(function(user) {
 	app.isLoading();
 	if (user) {
-		window.location.href = "/datos.html";
+		window.location.href = "/lista.html";
 	} 
 }); 
 
