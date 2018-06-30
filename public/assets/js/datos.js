@@ -17,7 +17,6 @@ var storageRef = storage.ref();
 var imagesRef = storageRef.child('images');
 
 
-
 var connectedRef = db.ref(".info/connected");
 
 (function() {
@@ -26,6 +25,7 @@ var connectedRef = db.ref(".info/connected");
 	
 	};
 
+
     $(document).on('click', '.loguear_usuario', function(e){ 
     	e.preventDefault();
     	var email = $("#email").val();
@@ -33,7 +33,34 @@ var connectedRef = db.ref(".info/connected");
     	app.firebase_login(email,password);
     });
 
+   /* $(document).on('click', '.file-submit', function(e){ 
+    	e.preventDefault();
+    	app.handleFileUploadSubmit();
+    });
 
+   $(document).on('change', '.file-select', function(e){ 
+    	e.preventDefault();
+    	app.handleFileUploadChange();
+    });
+
+var selectedFile;
+app.handleFileUploadChange = (e) => {
+  selectedFile = e.target.files[0];
+}
+
+app.handleFileUploadSubmit = (e)  => {
+  const uploadTask = storageRef.child(`images/${selectedFile.name}`).put(selectedFile); //create a child directory called images, and place the file inside this directory
+  uploadTask.on('state_changed', (snapshot) => {
+  // Observe state change events such as progress, pause, and resume
+  }, (error) => {
+    // Handle unsuccessful uploads
+    console.log(error);
+  }, () => {
+     // Do something once upload is complete
+     console.log('success');
+  });
+}
+*/
 firebase.auth().onAuthStateChanged(function(user) {
 	app.isLoading();
 	if (!user) {
@@ -58,6 +85,65 @@ app.firebase_login = (email,password) => {
 
 	
 })(); //app
+
+document.querySelector('.file-select').addEventListener('change', handleFileUploadChange);
+document.querySelector('.file-submit').addEventListener('click', handleFileUploadSubmit);
+document.querySelector('#nombre').addEventListener('keyup', subirdata);
+document.querySelector('#historia').addEventListener('keyup', subirdata);
+let selectedFile;
+function handleFileUploadChange(e) {
+  selectedFile = e.target.files[0];
+}
+
+function handleFileUploadSubmit(e) {
+  	const uploadTask = storageRef.child(`images/${selectedFile.name}`).put(selectedFile).then((snapshot) =>{
+    	var image_url = snapshot.downloadURL;
+    	var userId = getUrlParameter("id");
+  		if (userId != "" && image_url != ""){
+			var postData = {
+	    	imagen: image_url,
+	  		};
+	  		firebase.database().ref('users/' + userId).update(postData);
+  		}
+	}); //create a child directory called images, and place the file inside this directory
+	  /*uploadTask.on('state_changed', (snapshot) => {
+	  // Observe state change events such as progress, pause, and resume
+	  }, (error) => {
+	    // Handle unsuccessful uploads
+	    console.log(error);
+	  }, () => {
+	     // Do something once upload is complete
+	     console.log('success');
+
+	  });*/
+}
+
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
+function subirdata(){
+	var userId = getUrlParameter("id");
+	var postData = {
+    	nombre: $("#nombre").val(),
+	    historia: $("#historia").val(),
+  	};
+
+	if (userId != ""){
+  		firebase.database().ref('users/' + userId).update(postData);
+  	}
+}
 
 $("#google_logout").on('click',  function(event) {
 	event.preventDefault();

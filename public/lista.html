@@ -13,45 +13,34 @@
     <header>
   <nav>
     <div class="nav-wrapper">
-      <ul id="nav-mobile" >
-        <li><a href="/lista.html">Listado</a></li>
-      </ul>
       <button class="waves-effect waves-light btn right" id="google_logout">logout</button>
     </div>
   </nav>
     </header>
-<div class="container">
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="nombre" type="text" class="validate">
-          <label for="nombre">Nombre y Apellido</label>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea id="historia" class="materialize-textarea"></textarea>
-          <label for="historia">Historia</label>
-        </div>
-      </div>
+      <table class="striped">
+        <thead>
+          <tr>
+              <th>Nombre</th>
+              <th>borrar</th>
+          </tr>
+        </thead>
 
-    <div id="filesubmit" class="file-field input-field row">
-      <div class="btn">
-        <span>File</span>
-        <input type="file" class="file-select " accept="image/*"/>
-      </div>
-      <div class="col s6">
-        <input class="file-path validate " type="text">
-      </div>
+        <tbody id="tabla">
+        </tbody>
+      </table>
+
+    <div class="fixed-action-btn right" style="bottom: 45px;right:45px;">
+      <a class="btn-floating btn-large deep-purple darken-1" id="nuevo_usuario">
+      <i class="large material-icons">add</i>
+      </a>
     </div>
-
-    <button class="file-submit waves-effect waves-light btn center">SUBIR FOTO</button>
-</div>   
+    
    <script   src="https://code.jquery.com/jquery-3.2.1.js"   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="   crossorigin="anonymous"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
         <script src="/assets/js/firebase.js"></script>
     <script src="/assets/js/firebase-firestore.js"></script>
-    <script src="/assets/js/datos.js" async></script>
+    <script src="/assets/js/lista.js" async></script>
   </body>
 </html>
