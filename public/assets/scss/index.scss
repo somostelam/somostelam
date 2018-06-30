@@ -1,0 +1,27 @@
+.row{
+  margin: 10px 10px;
+}
+.foto-lista{
+  padding: 0 !important;
+  border: 1px solid black;
+  opacity: 1;
+  transition: all ease 0.5s;
+  &:hover{
+    opacity: 0.5;
+  }
+}
+.perfil-modal{
+  display: none;
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index:2;
+  .img-container{
+    display: table;
+    margin: 0 auto;
+  }
+  .datos{
+    text-align: center;
+  }
+}
