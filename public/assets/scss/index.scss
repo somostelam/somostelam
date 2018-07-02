@@ -1,21 +1,49 @@
+body{
+  background-color: #00a2db;
+  font-family: 'Open Sans', sans-serif;
+}
+.desktop-menu{
+  height: 100%;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  .logo-telam{
+    background-color: #00a2db;
+    width: 100%;
+    padding: 40px;
+  }
+  .manifiesto{
+    padding: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+.historias-container{
+  margin: 10px;
+}
 .row{
-  margin: 10px 10px;
+  margin: 0 0;
+  padding: 0 0;
+}
+.perfil-container{
+  padding: 0 !important;
 }
 .foto-lista{
   padding: 0 !important;
-  border: 1px solid black;
   opacity: 1;
   transition: all ease 0.5s;
   &:hover{
     opacity: 0.5;
+    border: 1px solid rgba(0,0,0,0.5);
   }
 }
 .perfil-modal{
   display: none;
   background-color: rgba(0,0,0,0.5);
-  position: absolute;
-  left: 0;
-  top: 0;
+  position: fixed;
+  right: 0;
+  bottom: 0;
   z-index:2;
   .img-container{
     display: table;
@@ -23,5 +51,19 @@
   }
   .datos{
     text-align: center;
+  }
+}
+
+@media (max-width: 640px){
+
+}
+@media (min-width: 641px){
+  .historias-container{
+    width: 80%;
+    float: right;
+  }
+  .desktop-menu{
+    width: 19%;
+    float: left;
   }
 }
